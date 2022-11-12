@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Login', () => {
+describe('Successfully login', () => {
     before(()=>{
         cy.visit('https://front.serverest.dev/login')
       })
@@ -10,4 +10,5 @@ describe('Login', () => {
       cy.get('[data-testid="entrar"]').click()
       cy.get('h1').should('contain', "Bem Vindo  ")
     })
+
 })
