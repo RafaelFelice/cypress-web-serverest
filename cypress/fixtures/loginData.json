@@ -1,0 +1,8 @@
+{
+    "email_default": "fulano@qa.com",
+    "password_default": "teste",
+    "email_invalid": "invalid@qa.com",
+    "password_invalid": "invalid",
+    "email_blank": "{BACKSPACE}",
+    "password_blank": "{BACKSPACE}"
+  }
