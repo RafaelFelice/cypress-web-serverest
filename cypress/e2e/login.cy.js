@@ -2,7 +2,7 @@
 
 describe('Successfully login', () => {
     before(()=>{
-        cy.visit('https://front.serverest.dev/login')
+        cy.visit('/login')
       })
     it('Successfully login', function() {
       cy.fixture('loginData').as('login').then(() =>{
@@ -16,7 +16,7 @@ describe('Successfully login', () => {
 
 describe('Unsuccessfully login', () => {
     beforeEach(()=>{
-        cy.visit('https://front.serverest.dev/login')
+        cy.visit('/login')
       })
     it('Login with an invalid email',function() {
       cy.fixture('loginData').as('login').then(() =>{
