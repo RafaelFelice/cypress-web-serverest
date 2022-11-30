@@ -10,7 +10,7 @@ describe('Successfully login', () => {
         cy.get('#password').type(this.login.password_default)
       })
       cy.get('[data-testid="entrar"]').click()
-      cy.get('h1').should('contain', "Bem Vindo  ")
+      cy.url().should("contain", "/home");
     })
 })
 
@@ -24,7 +24,7 @@ describe('Unsuccessfully login', () => {
         cy.get('#password').type(this.login.password_default)
       })
       cy.get('[data-testid="entrar"]').click()
-      cy.get('.alert > :nth-child(2)').should('have.text', "Email e/ou senha inválidos")
+      cy.get('.alert').should('be.visible')
     })
 
     it('Login with an invalid password', function() {
@@ -33,7 +33,7 @@ describe('Unsuccessfully login', () => {
         cy.get('#password').type(this.login.password_invalid)
       })
       cy.get('[data-testid="entrar"]').click()
-      cy.get('.alert > :nth-child(2)').should('have.text', "Email e/ou senha inválidos")
+      cy.get('.alert').should('be.visible')
     })
 
     it('Login with invalid email and password', function() {
@@ -42,7 +42,7 @@ describe('Unsuccessfully login', () => {
         cy.get('#password').type(this.login.password_invalid)
       })
       cy.get('[data-testid="entrar"]').click()
-      cy.get('.alert > :nth-child(2)').should('have.text', "Email e/ou senha inválidos")
+      cy.get('.alert').should('be.visible')
     })
 
     it('Login with just the blank email', function() {
@@ -51,7 +51,7 @@ describe('Unsuccessfully login', () => {
         cy.get('#password').type(this.login.password_default)
       })
       cy.get('[data-testid="entrar"]').click()
-      cy.get('.alert > :nth-child(2)').should('have.text', "Email é obrigatório")
+      cy.get('.alert').should('be.visible')
     })
 
     it('Login with just the blank password', function() {
@@ -60,7 +60,7 @@ describe('Unsuccessfully login', () => {
         cy.get('#password').type(this.login.password_blank)
       })
       cy.get('[data-testid="entrar"]').click()
-      cy.get('.alert > :nth-child(2)').should('have.text', "Password é obrigatório")
+      cy.get('.alert').should('be.visible')
     })
 
     it('Login with the blank email and password', function() {
@@ -69,8 +69,8 @@ describe('Unsuccessfully login', () => {
         cy.get('#password').type(this.login.password_blank)
       })
       cy.get('[data-testid="entrar"]').click()
-      cy.get(':nth-child(3) > :nth-child(2)').should('have.text', "Email é obrigatório")
-      cy.get(':nth-child(4) > :nth-child(2)').should('have.text', "Password é obrigatório")
+      cy.get('.alert').should('be.visible')
+      cy.get('.alert').should('be.visible')
     })
 
 })
